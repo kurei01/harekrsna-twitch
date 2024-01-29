@@ -25,7 +25,7 @@ const UserPage = async ({ params }: UserPageProps) => {
       <p>User: {user.username}</p>
       <p>User ID: {user.id}</p>
       <p>is following: {JSON.stringify(isFollowing)}</p>
-      <Actions />
+      <Actions isFollowing={isFollowing} />
     </div>
   );
 };
