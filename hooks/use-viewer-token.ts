@@ -20,9 +20,25 @@ export const useViewerToken = (hostIdentity: string) => {
         };
         const name = decodedToken.name;
         const identity = decodedToken.jti;
+
+        if (identity) {
+          setIdentity(identity);
+        }
+
+        if (name) {
+          setName(name);
+        }
       } catch {
         toast.error("Something went wrong");
       }
     };
+
+    createToken();
   }, [hostIdentity]);
+
+  return {
+    token,
+    name,
+    identity,
+  };
 };
