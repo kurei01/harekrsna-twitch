@@ -5,17 +5,17 @@ import { Maximize, Minimize } from "lucide-react";
 import { Hint } from "@/components/hint";
 
 interface FullscreenControlProps {
-  isFullScreen: boolean;
+  isFullscreen: boolean;
   onToggle: () => void;
 }
 
 export const FullscreenControl = ({
-  isFullScreen,
+  isFullscreen,
   onToggle,
 }: FullscreenControlProps) => {
-  const Icon = isFullScreen ? Minimize : Maximize;
+  const Icon = isFullscreen ? Minimize : Maximize;
 
-  const label = isFullScreen ? "Exit fullscreeen" : "Enter fullscreen";
+  const label = isFullscreen ? "Exit fullscreeen" : "Enter fullscreen";
 
   return (
     <div className="flex items-center justify-center gap-4">
