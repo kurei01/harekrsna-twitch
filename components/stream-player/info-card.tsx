@@ -1,5 +1,7 @@
 "use client";
 
+import { Pencil } from "lucide-react";
+
 interface InfoCardProps {
   name: string;
   thumbnailUrl: string | null;
@@ -13,6 +15,20 @@ export const InfoCard = ({
   hostIdentity,
   viewerIdentity,
 }: InfoCardProps) => {
-  const hostAsViewer
-  return <div></div>;
+  const hostAsViewer = `host-${hostIdentity}`;
+  const isHost = viewerIdentity === hostAsViewer;
+
+  if (!isHost) return null;
+
+  return (
+    <div className="px-4">
+      <div className="rounded-xl bg-background">
+        <div className="flex items-center gap-x-2.5 p-4">
+          <div>
+            <Pencil />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
