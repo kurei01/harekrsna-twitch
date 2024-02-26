@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { useChatSideBar } from "@/store/use-chat-sidebar";
 import { useViewerToken } from "@/hooks/use-viewer-token";
 
+import { InfoCard } from "./info-card";
 import { ChatToggle } from "./chat-toggle";
 import { Chat, ChatSkeleton } from "./chat";
 import { Video, VideoSkeleton } from "./video";
