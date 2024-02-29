@@ -7,6 +7,11 @@ export const getUserByUsername = async (username: string) => {
     },
     include: {
       stream: true,
+      _count: {
+        select: {
+          FollowedBy: true,
+        },
+      },
     },
   });
 
@@ -23,5 +28,5 @@ export const getUserById = async (id: string) => {
     },
   });
 
-  return user
+  return user;
 };

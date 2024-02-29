@@ -8,13 +8,17 @@ import { useChatSideBar } from "@/store/use-chat-sidebar";
 import { useViewerToken } from "@/hooks/use-viewer-token";
 
 import { InfoCard } from "./info-card";
+import { AboutCard } from "./about-card";
 import { ChatToggle } from "./chat-toggle";
 import { Chat, ChatSkeleton } from "./chat";
 import { Video, VideoSkeleton } from "./video";
 import { Header, HeaderSkeleton } from "./header";
 
 interface StreamPlayerProps {
-  user: User & { stream: Stream | null };
+  user: User & {
+    stream: Stream | null;
+    _count: { FollowedBy: number };
+  };
   stream: Stream;
   isFollowing: boolean;
 }
@@ -59,6 +63,13 @@ export const StreamPlayer = ({
             viewerIdentity={identity}
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
+          />
+          <AboutCard
+            hostName={user.username}
+            hostIdentity={user.id}
+            viewerIdentity={identity}
+            bio={user.bio}
+            followedByCount={user._count.FollowedBy}
           />
         </div>
         <div className={cn("col-span-1", collapsed && "hidden")}>
