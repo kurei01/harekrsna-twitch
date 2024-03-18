@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-import { Stream, User } from "@prisma/client";
+import { User } from "@prisma/client";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Thumbnail, ThumbnailSkeleton } from "@/components/thumbnail";
-import { LiveBadge } from "@/components/live-badge";
 import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
 
 interface ResultCardProps {
