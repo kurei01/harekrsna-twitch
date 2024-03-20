@@ -3,7 +3,7 @@
 import { toast } from "sonner";
 import { useTransition } from "react";
 
-import { onUnBlock } from "@/actions/block";
+import { onBlock, onUnBlock } from "@/actions/block";
 import { onFollow, onUnFollow } from "@/actions/follow";
 import { Button } from "@/components/ui/button";
 
@@ -45,9 +45,9 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
 
   const handleBlock = () => {
     startTransition(() => {
-      onUnBlock(userId)
+      onBlock(userId)
         .then((data) =>
-          toast.success(`Unblocked the user ${data.blocked.username}`)
+          toast.success(`Unblocked the user ${data?.blocked.username}`)
         )
         .catch(() => toast.error("Something went wrong"));
     });
